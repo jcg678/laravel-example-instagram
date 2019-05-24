@@ -11,8 +11,8 @@ nick varchar(100),
 email varchar(255),
 password varchar(255),
 image varchar(255),
-create_at datetime,
-update_at datetime,
+created_at datetime,
+updated_at datetime,
 remember_token varchar(255),
 CONSTRAINT pk_users PRIMARY KEY(id)
 
