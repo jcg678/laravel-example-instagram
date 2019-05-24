@@ -17,8 +17,8 @@ class Image extends Model
     }
 
     public function user(){
-    	return $this->belowsTo('App\User', 'user_id');
+    	return $this->belongsTo('App\User', 'user_id');
     }
 
-    
+
 }
