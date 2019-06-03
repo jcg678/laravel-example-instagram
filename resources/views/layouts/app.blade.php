@@ -51,11 +51,11 @@
                             @endif
                         @else
                         <li class="nav-item">
-                            <a   class="nav-link" href="">Inicio</a>
+                            <a href="{{ route('home') }}"  class="nav-link" >Inicio</a>
                             
                         </li class="nav-item"> 
                         <li>
-                            <a  class="nav-link" href="">Subir Imagen</a>
+                            <a  class="nav-link" href="{{ route('image.create')}}">Subir Imagen</a>
                         </li>
   
                         <li>
