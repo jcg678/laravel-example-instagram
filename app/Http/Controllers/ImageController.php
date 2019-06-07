@@ -9,7 +9,7 @@ use App\Image;
 use Illuminate\Support\Facades\Storage;
 
 use Illuminate\Support\Facades\File;
-
+use Illuminate\Http\Response;
 
 
 class ImageController extends Controller
@@ -60,4 +60,10 @@ class ImageController extends Controller
     	]);
     }
 
+
+    public function getImage($filename){
+        $file= Storage::disk('images')->get($filename);
+        return new Response($file,200);
+
+    }
 }

@@ -31,4 +31,6 @@ class HomeController extends Controller
             'images' =>$images
         ]);
     }
+
+    
 }
