@@ -16,6 +16,7 @@
                         <div class="data-user"> 
                             {{$image->user->name}}
                             <span class="nickname">{{' | @'.$image->user->nick}}   </span>
+                            <span class="nickname date">{{ ' | '.\FormatTime::LongTimeFilter($image->created_at)}}</span>
                         </div>
                         
                     </div>
