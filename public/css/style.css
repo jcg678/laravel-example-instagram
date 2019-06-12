@@ -51,6 +51,10 @@ color: #444;
 	width: 100%
 }
 
+.image-detail{
+	max-height: 500px;
+}
+
 .pub_image .card-body{
 	padding: 0px;
 }
@@ -75,4 +79,8 @@ color: #444;
 }
 .likes img{
 	width: 20px;
+}
+
+.pub_image .comments{
+	padding: 20px;
 }
