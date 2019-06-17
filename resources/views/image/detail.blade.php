@@ -39,11 +39,16 @@
                                 Comentarios ({{ count($image->comments) }})   
                             </h2>
                             <hr>
-                            <form method="post" action="">
+                            <form method="post" action="{{ route('comment.save')}}">
                                 @csrf
                                 <input type="hidden"  name="image_id" value="{{$image->id}}" />
                                 <p>
                                     <textarea class="form-control" name="content" required></textarea>
+                                @if($errors->has('content'))
+                                    <span  role="alert" style="display: block;">
+                                          <strong>{{ $errors->first('content') }}</strong>  
+                                    </span> 
+                                @endif 
                                 </p>
                                 <button type="submit" class="btn btn-success">
                                     Enviar    
