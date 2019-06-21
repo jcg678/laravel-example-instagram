@@ -44,4 +44,23 @@ class CommentController extends Controller
                 ]);
     }
 
+    public function delete($id){
+         $user = \Auth::user();
+         $comment = Comment::find($id);
+
+         if($user && ($comment->user_id==$user->id || $comment->image->user_id == $user->id)){
+            $comment->delete();
+                    return redirect()->route('image.detail',['id'=>$comment->image->id])
+                ->with([
+                    'message'=>'Comentario eliminado'
+                ]);
+         }else{
+                                return redirect()->route('image.detail',['id'=>$comment->image->id])
+                ->with([
+                    'message'=>'Comentario no eliminado'
+                ]);
+         }       
+
+    }
+
 }
