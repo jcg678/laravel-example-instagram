@@ -60,8 +60,8 @@ CREATE TABLE IF NOT EXISTS likes(
 id int(255) auto_increment not null,
 user_id int(255),
 image_id int(255),
-create_at datetime,
-update_at datetime,
+created_at datetime,
+updated_at datetime,
 CONSTRAINT pk_likes PRIMARY KEY(id),
 CONSTRAINT fk_likes_users FOREIGN KEY(user_id) REFERENCES users(id),
 CONSTRAINT fk_likes_images FOREIGN KEY(image_id) REFERENCES images(id)
