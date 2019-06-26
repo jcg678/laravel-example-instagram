@@ -54,7 +54,10 @@
                         <li class="nav-item">
                             <a href="{{ route('home') }}"  class="nav-link" >Inicio</a>
                             
-                        </li class="nav-item"> 
+                        </li class="nav-item">
+                        <li>
+                            <a  class="nav-link" href="{{ route('likes')}}">Favoritas</a>
+                        </li>                         
                         <li>
                             <a  class="nav-link" href="{{ route('image.create')}}">Subir Imagen</a>
                         </li>
