@@ -50,3 +50,4 @@ Route::get('/comment/delete/{id}','CommentController@delete')->name('comment.del
 Route::get('/like/{image_id}','LikeController@like')->name('like.save');
 Route::get('/dislike/{image_id}','LikeController@dislike')->name('like.delete');
 Route::get('/likes','LikeController@index')->name('likes');
+Route::get('/profile/{id}','UserController@profile')->name('profile');
