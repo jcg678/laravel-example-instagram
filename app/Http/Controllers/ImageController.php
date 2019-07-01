@@ -10,6 +10,9 @@ use Illuminate\Support\Facades\Storage;
 
 use Illuminate\Support\Facades\File;
 use Illuminate\Http\Response;
+use App\Comment;
+use App\Like;
+
 
 
 class ImageController extends Controller
@@ -73,5 +76,36 @@ class ImageController extends Controller
         return view('image.detail',[
             'image'=>$image
         ]);
+    }
+
+    public function delete($id){
+        $user = \Auth::user();
+        $image = Image::find($id);
+        $comments = Comment::where('image_id',$id)->get();
+        $likes = Like::where('image_id',$id)->get();
+
+        if($user && $image && $image->user->id == $user->id){
+
+            if($comments && count($comments) >=1){
+                foreach ($comments as $comment) {
+                    $comment->delete();
+                }
+            }
+
+            if($likes && count($likes) >=1){
+                foreach ($likes as $like) {
+                    $like->delete();
+                }
+            }
+
+            Storage::disk('images')->delete($image->image_path);
+
+            $image->delete();
+            $message = array('message'=>'La imagen se ha borrado correctamente');
+        }else{
+            $message = array('message'=>'La imagen no se ha borrado');
+        }
+
+        return redirect()->route('home')->with($message);
     }
 }
