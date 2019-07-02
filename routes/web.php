@@ -15,23 +15,6 @@
 
 
 Route::get('/', function () {
-	/*
-    $images = Image::all();
-
-    foreach ($images as $image ) {
-    	echo $image->image_path."<br>";
-    	echo $image->user->name.' '.$image->user->surname.'<br>';
-    if(count($image->comments)>=1){
-    	echo "<strong>Comentarios</strong><br>";
-    	foreach ($image->comments as $comment) {
-    		echo $comment->content.'<i>'.$comment->user->nick.'</i>'.'</br>';
-    		//echo '<i>'.$comment->user->nickname.'</i>';
-    	}
-    }
-    	echo 'Likes: '.count($image->likes);
-    	echo $image->description."<hr>";
-    }
-    die();*/
     return view('welcome');
 });
 
@@ -53,3 +36,4 @@ Route::get('/likes','LikeController@index')->name('likes');
 Route::get('/profile/{id}','UserController@profile')->name('profile');
 Route::get('/image/delete/{id}','ImageController@delete')->name('image.delete');
 Route::get('/imagen/edit/{id}','ImageController@edit')->name('image.edit');
+Route::post('/image/update','ImageController@update')->name('image.update');

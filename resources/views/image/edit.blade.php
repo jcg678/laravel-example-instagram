@@ -6,18 +6,20 @@
             <div class="card">
                 <div class="card-header">Editar mi imagen</div>
                 <div class="card-body">
-            	    <form method="post" enctype="multipart/form-data" action="">
+            	    <form method="post" enctype="multipart/form-data" action="{{route('image.update')}}">
                         @csrf
+                        <input type="hidden" name="image_id" value="{{$image->id}}">
+
                         <div class="form-group row">
                             <label for="image_path" class="col-md-3 col-form-label text-md-right">Imagen</label>
                             <div class="col-md-7">
-		                         @if($image->user->image)
+		                         @if($image->image_path)
 		                         <div class="container-avatar"> 
-		                            <img src="{{route('user.avatar',['filename'=>$image->user->image]) }}" class="avatar" />
+		                            <img src="{{route('image.file',['filename'=>$image->image_path]) }}" class="avatar" />
 		                        </div>
 		                        @endif
 
-                                <input id="image_path" type="file" name="image_path" class="form-control {{$errors->first('image_path') ? 'is-invalid' : ''}}" required>
+                                <input id="image_path" type="file" name="image_path" class="form-control {{$errors->first('image_path') ? 'is-invalid' : ''}}" >
                                 @if($errors->has('image_path'))
                                     <span class="invalid-feedback" role="alert" style="display: block;">
                                           <strong>{{ $errors->first('image_path') }}</strong>  
