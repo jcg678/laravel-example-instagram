@@ -47,7 +47,7 @@
                         </div>
                         @if(Auth::user() && Auth::user()->id == $image->user->id)
                         <div class="actions">
-                             <a href="" class="btn btn-sm btn-primary">Actualizar</a>
+                             <a href="{{route('image.edit',['id'=>$image->id])}}" class="btn btn-sm btn-primary">Actualizar</a>
                              
 
                             <!-- Button to Open the Modal -->
